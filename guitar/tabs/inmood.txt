@@ -1,0 +1,66 @@
+#----------------------------------PLEASE NOTE---------------------------------#
+#This file is the author's own work and represents their interpretation of the #
+#song. You may only use this file for private study, scholarship, or research. #
+#------------------------------------------------------------------------------#
+
+================================================================================
+         Title : I'm In The Mood
+        Artist : John Lee Hooker (with Bonny Raitt)
+         Album : The Healer
+================================================================================
+
+   INTRO:
+ Note tuning
+
+Eb|-----0--0--0--0--0--0--0--0--0--0--0--0--0--0--0--|-----0--0--0--0--
+Bb|----/5--5--5--5--5--5--5--5--5--5--5--5--5--5--5--|--8--8--8--8--8--
+Gb|--------------------------------------------------|-----------------
+Db|--------------------------------------------------|-----------------
+Ab|--------------------------------------------------|--0--0--0--0--0--
+Eb|--------------------0-----0--0--0-----0--0--------|-----------------
+
+
+
+Eb|--0--0--0--0--|--0--0--0--0--0--0--0------------------|
+Bb|--8--8--8--8--|--5--5--5--5--5--5--5--3--0------------|
+Gb|--------------|-----------------------0--0--2b4r0-----|
+Db|--------------|------------------------------------2--|
+Ab|--0--0--0--0--|--0--0--0--0--0--0--0---------------0--|
+Eb|--------------|---------------------------------------|
+
+
+
+Eb|--------------3--0--------------------|-----------------------------||
+Bb|-----0--3--0--------3--0--------------|--------------------0--0--0--||
+Gb|-----1-----0--0--0--0--0--2b4r2p0-----|-----------------------------||
+Db|--2-----2--------------------------2--|--2--------------2-----------||
+Ab|-----------------------------------0--|--------0--1--2--2-----------||
+Eb|--0-----------------------------------|--0--0-----------------------||
+</PRE><BR><SCRIPT Language="Javascript">  
+var NS = (navigator.appName == "Netscape");
+var VERSION = parseInt(navigator.appVersion);
+if (VERSION > 3) {
+    document.write('<form><input type=button value="Print this Page" name="Print" onClick="printit()"></form>');        
+}
+</script><BR><a class=link href="http://mikesguitarsite.future.easyspace.com/blues/jlhooker.zip">get the power tab scores <img src="../mgs/powertab.gif" width="18" height="18" border="0"></a><br><br><CENTER>JOHN LEE HOOKER<br>at<br><table width="100%"><tr> <td><center><a class=link href="http://www.cdnow.com/switch/from=sr-5214967/target=buyweb_products/ArtistID=FRN-HOOKER*JOHN+LEE" onMouseOver="window.status='Get your John Lee Hooker CDs at CD NOW'; return true;" onMouseOut="window.status=''; return true;"><img src="../rings/cdnow2.gif" width="136" height="53" border="0" alt="CDNOW"></a></center></td> <td><center><a class=link href="http://www.sheetmusicplus.com/a/phrase.html?id=20190&phrase=John%20Lee%20Hooker" onMouseOver="window.status='John Lee Hooker at SheetMusic Plus'; return true;" onMouseOut="window.status=''; return true;"><img src="http://gfx.sheetmusicplus.com/store/gfx/smp_logo_150_white.gif" width=150 height=40 border=0></a></center></td></tr></table><CENTER> <a class=link HREF="blues.htm" TARGET="_self" onMouseOver="MM_displayStatusMsg('Blues tab page');return document.MM_returnValue">Blues tab page</A> | <a class=link HREF="../mgs/tableg.htm" TARGET="_self" onMouseOver="MM_displayStatusMsg('Tab Legend');return document.MM_returnValue">tab legend</A><BR> <a class=link HREF="http://www.mikesguitarsite.co.uk" TARGET="_parent" onMouseOver="MM_displayStatusMsg('Mike\'s Guitar Site');return document.MM_returnValue">home</A> | <a class=link HREF="http://www.mikesguitarsite.co.uk/mgs/frames/frames.htm" TARGET="_parent" onMouseOver="MM_displayStatusMsg('Contents Of Mike\'s Guitar Site');return document.MM_returnValue">contents</A> | <a class=link HREF="mailto:mrsawley@hotmail.com" onMouseOver="MM_displayStatusMsg('E-mail Mike at mrsawley@hotmail.com');return document.MM_returnValue">e-mail</A> </CENTER><BR><!-- BEGIN WEBSIDESTORY CODE V5. COPYRIGHT 1998-2000 WEBSIDESTORY, INC. ALL RIGHTS RESERVED. U.S. PATENT PENDING. -->
+<!-- webbot bot="HTMLMarkup" startspan -->
+<p align="center"><script language="javascript"> var test=0;</script> <SCRIPT LANGUAGE="javascript1.1" 
+src="http://js1.hitbox.com/js?acct=WQ500515IDDV76EN0&m=w155&n=BLUES+Im+in+mood">
+</SCRIPT><SCRIPT LANGUAGE="javascript">
+if (test==0) { var dt=0, sv=10, ss="na",sc="na",ln="",pl="",rf="",bn="",ja="",bv=0,x1="",x2="",x3="",arg="";
+rf=escape(document.referrer)+"";if((rf=="undefined")||(rf=="")){rf="bookmark";}
+bv=Math.round(parseFloat(navigator.appVersion)*100);bn=navigator.appName;
+if(bn!="Netscape"){dt=(new Date()).getHours();};if(bn.substring(0,9)=="Microsoft"){bn="MSIE";}
+if((bn=="MSIE")&&(parseInt(bv)==2)){bv=302;};ja="na";
+x1="<a href='http://rd1.hitbox.com/rd?acct=WQ500515IDDV76EN0' target='_top'>";
+x2="<img src='http://hg1.hitbox.com/HG?hc=w155&cd=1&hb=WQ500515IDDV76EN0&n=BLUES+Im+in+mood";
+x3="&cd=1&bt=2' border=0 height=62 width=88></a>";
+arg="&bn="+bn+"&bv="+bv+"&ss="+ss+"&sc="+sc+"&dt="+dt+"&sv="+sv;
+arg+="&ja="+ja+"&rf="+rf+"&ln="+ln+"&pl="+escape(pl);document.write(x1+x2+arg+x3);}</SCRIPT>
+<script language="javascript1.2">document.write("<");document.write("!--  ");</script>
+<noscript><a href="http://rd1.hitbox.com/rd?acct=WQ500515IDDV76EN0" target="_top">
+<img src="http://hg1.hitbox.com/HG?hc=w155&cd=1&hb=WQ500515IDDV76EN0&n=BLUES+Im+in+mood"
+border=0 height=62 width=88></a></noscript>
+<script language="javascript1.2"> document.write("  --");document.write(">");</script></p>
+<!-- webbot bot="HTMLMarkup" endspan -->
+<!-- END WEBSIDESTORY CODE  --></center></BODY></HTML>

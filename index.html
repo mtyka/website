@@ -13,7 +13,9 @@ function loadProjectThumbnails(projectclasses, galleryclasses) {
   window.location.hash = projectclasses + "#" + galleryclasses; 
 }
 
+var is_loaded = false;
 adjust_slider_width = function() {
+ if(!is_loaded) return;
  total_width = 0
  $("#main").children().each(function(a ,b) { 
 	 total_width += b.scrollWidth; 
@@ -46,16 +48,21 @@ navigate = function() {
    window.scrollTo(0,0)
  }
 
- $("#main").width(100000);
+ $("#main").width(20000);
  $(".project").filter(projectclasses).children(".gallerypic")
  .filter(galleryclasses).css("display","inline-block");
  $(".project").filter(projectclasses).children(".gallerypic")
  .not(galleryclasses).css("display","none");
  $(".project").not(projectclasses).children(".gallerypic").css("display","none")
- adjust_slider_width();
+ adjust_slider_width(); 
 }
 
 window.onhashchange = navigate;
+window.onload = function () {
+	is_loaded = true;
+	adjust_slider_width();
+}
+window.onunload = function() {}
 
 document.addEventListener('DOMContentLoaded', function(){
 
@@ -77,7 +84,6 @@ document.addEventListener('DOMContentLoaded', function(){
 			})
 	} 
 
- $("img").load(adjust_slider_width);
  $(".gallerypic").click(function(ev) {
    projectclasses = $(ev.currentTarget).parent()[0].className.split(/\s+/)
    loadProjectThumbnails(projectclasses.last(), 'gallerypic');

@@ -1,0 +1,116 @@
+* { padding:0 ; margin:0}
+
+body {
+ background: #444;
+}
+img { border: 0 }
+
+a:link {color:#CCCCCC; text-decoration:none; }      /* unvisited link */
+a:visited {color:#CCCCCC; text-decoration:none; }  /* visited link */
+a:hover {color:#EEEEEE; text-decoration:underline; }  /* mouse over link */
+a:active {color:#FFFFFF; text-decoration:underline; }  /* selected link */
+
+p,div {
+  font-size: 14px;
+  font-family: "Gill Sans", "Century Gothic", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+  color: #FFF;
+}
+
+img.image {
+  height: 500px;
+}
+
+.gallerypic
+{
+  display: none;
+	margin-bottom: 20px;
+	margin-left: 20px;
+	margin-top:  20px;
+	margin-right: 20px;
+}
+
+.projectdesc
+{
+ vertical-align: top;
+  width: 300px;
+	margin-left:  10px;
+	margin-right:  4px;
+}
+
+.projectdescshort
+{
+ vertical-align: top;
+  width: 150px;
+	margin-left:  10px;
+	margin-right:  4px;
+}
+
+.project {
+  display: inline-block;
+}
+
+.stripe {
+  position: absolute;
+  height: 545px;
+  top:50%;
+  margin-top: -275px;
+  width: 15000px;
+  display: inline-block; 
+}
+
+.fixed {
+  position: fixed;
+}
+
+.sidemenu {
+ vertical-align: top;
+ position: relative;
+ width: 140px;
+ display: inline-block;
+ margin-bottom: 20px;
+ margin-top:    40px;
+ margin-left:    20px;
+  font-size: 20px;
+  font-family: "Gill Sans", "Century Gothic", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+  color: #FFF;
+}
+
+.boundbox
+{
+	position: fixed;
+	width: 90%;
+	height: 90%;
+	top: 5%;
+	left: 5%;
+}
+
+#miketyka
+{
+	position: fixed;
+	top: 10px;
+	right: 20px;
+}
+.topline
+{
+	position: absolute;
+	top:  1px;
+	left: 15px;
+  z-index: 30;
+}
+.botline
+{
+	position: absolute;
+	bottom:  1px;
+	left: 15px;
+  z-index: 30;
+}
+.topmenu
+{
+	_position: absolute;
+	position: absolute;
+	top:  5%;
+	left: 10%;
+  font-size: 20px;
+  font-family: "Gill Sans", "Century Gothic", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+  color: #FFF;
+}
