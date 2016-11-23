@@ -1,26 +1,34 @@
 <html>
+<head>
+<meta name="viewport" content="height=device-height,minimum-scale=0.8"/>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link href="style.css" rel="stylesheet" type="text/css">
-<script> 
+<script>
 
 if (!Array.prototype.last){
   Array.prototype.last = function(){
     return this[this.length - 1];
   };
 };
+  
+function scrollToFarRight() {
+  $('body, html').scrollLeft(0);
+}
 
 function loadProjectThumbnails(projectclasses, galleryclasses) {
-  window.location.hash = projectclasses + "#" + galleryclasses; 
+  window.location.hash = projectclasses + "#" + galleryclasses;
+  scrollToFarRight();
 }
 
 var is_loaded = false;
 adjust_slider_width = function() {
  if(!is_loaded) return;
  total_width = 0
- $("#main").children().each(function(a ,b) { 
-	 total_width += b.scrollWidth; 
+ $("#main").children().each(function(a ,b) {
+   total_width += b.scrollWidth;
  })
- $("#main").width(total_width + 100);
+ new_width = total_width + 250;
+ $("#main").width(new_width);
 }
 
 navigate = function() {
@@ -30,31 +38,31 @@ navigate = function() {
    projectclasses = ".ubiquitin"
  }
  if(projectclasses[0]!='.'){
-    projectclasses = '.' + projectclasses; 
+    projectclasses = '.' + projectclasses;
  }
  galleryclasses = split_hash[2]
  if(!galleryclasses || galleryclasses == "" ) {
    galleryclasses = ".represent"
  }
  if(galleryclasses[0]!='.'){
-    galleryclasses = '.' + galleryclasses; 
+    galleryclasses = '.' + galleryclasses;
  }
 
- if (($(".project").filter(projectclasses).children(".gallerypic").filter(galleryclasses).length <= 1) &&
+ if (($(".project").filter(projectclasses).children(".gallerypic          ").filter(galleryclasses).length <= 1) &&
      (galleryclasses == ".represent")) {
-   galleryclasses = ".gallerypic" 
+   galleryclasses = ".gallerypic          "
  }
- if(galleryclasses == ".gallerypic") {
+ if(galleryclasses == ".gallerypic          ") {
    window.scrollTo(0,0)
  }
 
  $("#main").width(20000);
- $(".project").filter(projectclasses).children(".gallerypic")
+ $(".project").filter(projectclasses).children(".gallerypic          ")
  .filter(galleryclasses).css("display","inline-block");
- $(".project").filter(projectclasses).children(".gallerypic")
+ $(".project").filter(projectclasses).children(".gallerypic          ")
  .not(galleryclasses).css("display","none");
- $(".project").not(projectclasses).children(".gallerypic").css("display","none")
- adjust_slider_width(); 
+ $(".project").not(projectclasses).children(".gallerypic          ").css("display","none")
+ adjust_slider_width();
 }
 
 window.onhashchange = navigate;
@@ -66,7 +74,7 @@ window.onunload = function() {}
 
 document.addEventListener('DOMContentLoaded', function(){
 
-  console.log([navigator.userAgent, window.innerWidth, window.innerHeight]); 
+  console.log([navigator.userAgent, window.innerWidth, window.innerHeight]);
   // for small (often mobile) devices reduce image sizes.
 		if( navigator.userAgent.match(/Android/i)
 			|| navigator.userAgent.match(/webOS/i)
@@ -76,20 +84,26 @@ document.addEventListener('DOMContentLoaded', function(){
 			|| navigator.userAgent.match(/BlackBerry/i)
 			|| navigator.userAgent.match(/Windows Phone/i)
 		) {
+	  //console.log("Optimizing for mobile view.");
 		// swap out images for lowres versions.
-		$("img").each(function(a,b){ 
-			console.log(b.src); 
-			if(b.src.startsWith("http://www.miketyka.com/projects")) { 
-				b.src = b.src + ".small.jpg" } 
-			})
-	} 
+		//$("img").each(function(a,b){
+	//		console.log(b.src);
+	//		if(b.src.startsWith("http://www.miketyka.com/projects")) {
+	//			b.src = b.src + ".small.jpg" }
+	//		})
+    $("#box").hide(); 
+    $("#miketyka").hide(); 
+    $("#main").css("height","100%");
+    $("#main").css("top","0%");
+    $("#main").css("margin-top","0px");
+  }
 
  $(".gallerypic").click(function(ev) {
    projectclasses = $(ev.currentTarget).parent()[0].className.split(/\s+/)
    loadProjectThumbnails(projectclasses.last(), 'gallerypic');
  })
  if(window.location.hash == "") {
-		//loadProjectThumbnails('.copper',''); 
+		//loadProjectThumbnails('.copper','');
     window.location.hash = "copper"
 		navigate();
  } else {
@@ -112,6 +126,7 @@ _gaq.push(['_trackPageview']);
 
 </script>
 
+</head>
 <body>
 
 <a href="http://www.miketyka.com/"><img src="pics/miketyka.png" id="miketyka"></a>
@@ -124,31 +139,128 @@ _gaq.push(['_trackPageview']);
 <div id="main" class="stripe">
 
 <div class="sidemenu">
-      <span class="topmenuitem" onclick="loadProjectThumbnails('.copper','.represent');">COPPER</span>
-  <br><span class="topmenuitem" onclick="loadProjectThumbnails('.glass','.represent');">GLASS</span>
-  <br><span class="topmenuitem" onclick="loadProjectThumbnails('.inceptionism','.represent');">INCEPTIONISM</span>
-  <br><span class="topmenuitem" onclick="loadProjectThumbnails('.installation','.represent');">INSTALLATION</span>
-  <br><span class="topmenuitem" onclick="loadProjectThumbnails('.about','.gallerypic');">ABOUT</span>
+  <span class="topmenuitem" onclick="loadProjectThumbnails('.copper','.represent');">PROTEINS</span><br>
+  <span class="topmenuitem" onclick="loadProjectThumbnails('.installation','.represent');">GROOVIKSCUBE</span><br>
+  <span class="topmenuitem" onclick="loadProjectThumbnails('.inceptionism','.represent');">INCEPTIONISM</span><br>
+  <span class="topmenuitem" onclick="loadProjectThumbnails('.deepdream','.represent');">DEEPDREAM</span><br>
+  <span class="topmenuitem" onclick="loadProjectThumbnails('.stillife','.represent');">STILLIFE</span><br>
+  <!-- <span class="topmenuitem" onclick="loadProjectThumbnails('.performance','.represent');">PERFORMANCE</span><br> -->
+  <span class="topmenuitem" onclick="loadProjectThumbnails('.about','.gallerypic');">ABOUT</span>
 </div>
 
 <div class="project copper ubiquitin" >
-  <div class="gallerypic projectdesc"> 
-    <div class="desctitle">"Angel of Death" - Ubiquitin</div> 
+  <div class="gallerypic projectdesc">
+    <div class="desctitle">"Angel of Death" - Ubiquitin</div>
 		<div class="descmedia">Copper, Steel -  9"x9"x16"</div>
 		<div class="descyear">2011 - currently on display at <a href="http://www.sciencehouse.net/">ScienceHouse</a><br><br></div>
 		<div class="desctext">
-	 Life is a dynamic equilibrium of creation and destruction. Inside our cells the protein nano-machines, to which we owe our distinction from the inorganic, are perpetually recycled and rebuilt, forever battling the inevitable fate of entropic decay. Once covalently tagged with Ubiquitin, a protein is doomed to destruction by the proteasome, a protein degradation machine found in all of our cells. The component amino acids are then reused to synthesize new proteins. The constant recycling and rebuilding of proteins not only ensures that damaged proteins are removed quickly, but also allows rapid regulation of enzyme levels in the cell. The meandering path of the metal ribbon closely follows the fold and thus the internal structure of Ubiquitin. It features all of the major structural elements of typical proteins, including two alpha helices and a curved beta sheet. Its small size (76 amino acids) makes it one of the most studied proteins for protein folding and dynamics. 
+	 Life is a dynamic equilibrium of creation and destruction. Inside our cells the protein nano-machines, to which we owe our distinction from the inorganic, are perpetually recycled and rebuilt, forever battling the inevitable fate of entropic decay. Once covalently tagged with Ubiquitin, a protein is doomed to destruction by the proteasome, a protein degradation machine found in all of our cells. The component amino acids are then reused to synthesize new proteins. The constant recycling and rebuilding of proteins not only ensures that damaged proteins are removed quickly, but also allows rapid regulation of enzyme levels in the cell. The meandering path of the metal ribbon closely follows the fold and thus the internal structure of Ubiquitin. It features all of the major structural elements of typical proteins, including two alpha helices and a curved beta sheet. Its small size (76 amino acids) makes it one of the most studied proteins for protein folding and dynamics.
 		</div>
-  </div> 
-	<div class="gallerypic represent"><img src="projects/ubiquitin/ubiquitin_5_big.jpg" class="image"> </div>
-	<div class="gallerypic"><img src="projects/ubiquitin/ubiquitin_7_big.jpg" class="image"> </div>
-	<div class="gallerypic"><img src="projects/ubiquitin/ubiquitin_6_big.jpg" class="image"> </div>
-	<div class="gallerypic"><img src="projects/ubiquitin/ubiquitin_3_big.jpg" class="image"> </div>
+  </div>
+	<div class="gallerypic represent"><img src="projects/ubiquitin/ubiquitin_5_big.jpg" class="image"><div class="gallerypic_desc">"Angel of Death" - Ubiquitin</div> </div>
+	<div class="gallerypic          "><img src="projects/ubiquitin/ubiquitin_7_big.jpg" class="image"><div class="gallerypic_desc">&nbsp;</div></div>
+	<div class="gallerypic          "><img src="projects/ubiquitin/ubiquitin_6_big.jpg" class="image"><div class="gallerypic_desc">&nbsp;</div></div>
+	<div class="gallerypic          "><img src="projects/ubiquitin/ubiquitin_3_big.jpg" class="image"><div class="gallerypic_desc">&nbsp;</div></div>
+</div>
+
+<div class="project copper tears" >
+  <div class="gallerypic projectdesc">
+		<div class="desctitle">"Tears" - Lysozyme with carbohydrate</div>
+		<div class="descmedia">Cast bronze, Cast Glass, Wood - 20"x10"x12"</div>
+		<div class="descyear">2015<br><br></div>
+		<div class="desctext">
+    Tears display antibacterial activity, a property that was discovered by Alexander Fleming around the turn of the last century. The active agent, Lysozyme, is also found in saliva, nasal mucus and even breast milk and constitutes a major element in the body’s innate immune defense.
+    Lysozyme was also one of the first proteins and the very first enzyme to have its three dimensional structure elucidated in the 60s through painstaking X-ray crystallography work by David Phillips. The coordinates obtained were used here to create the initial 3D model of the protein which was then 3D printed in plastic, post processed and then recast in clear lead glass using direct lost-PLA casting.
+    Many bacteria implicated in human disease have a protective cell wall. Lysozyme is an enzyme which digests these carbohydrate barriers, thereby significantly weakening the potential intruders. The carbohydrate, part of which is cast here in bronze, fits tightly into the active site cleft of the Lysozyme enzyme. Deep inside that cleft the cleavage reaction takes place, catalysed by the protein. After cleavage Lysozyme releases both parts and moves on to a new cleavage site, gradually breaking down the cell wall. Discovery of the atom structure led to the first detailed enzymatic mechanism to be described and was a major breakthrough in our understanding of how our bodies’ metabolic functions.
+		</div>
+	</div>
+	<div class="gallerypic represent"><img src="projects/tears/DSC_6266_rot_crop.jpg" class="image"><div class="gallerypic_desc">"Tears" - Lysozyme with carbohydrate</div>  </div>
+	<div class="gallerypic          "><img src="projects/porin/porin_1_big.jpg" class="image"><div class="gallerypic_desc">&nbsp;</div> </div>
+</div>
+
+<div class="project copper porin" >
+  <div class="gallerypic projectdesc">
+		<div class="desctitle">"Portal" - Bacterial Porin</div>
+		<div class="descmedia">Copper, Steel, Wenge Wood - 12"x12"x24"</div>
+		<div class="descyear">2012 - Currently at Hutchinson Cancer Institute, Seattle <br><br></div>
+		<div class="desctext">
+The boundary of cellular life, which delineates the living chemistry from its surroundings, was among the most important fundamental inventions of evolution eons ago. Protein channels span these molecular castle walls and regulate the diffusional traffic of molecules trying to enter or leave the cell. One class of these molecular gatekeepers are the Porins, beta-barrel proteins that are situated in the outer membranes of cells or organelles such as human mitochondria. The Porin channel is partially blocked by a loop, called the eyelet, which projects into the cavity and defines the size of solute that can traverse the channel. Porins can be chemically selective, they can transport only one group of molecules, or may be specific to one molecule. For example, for antibiotics to be effective against a bacterium, it must often pass through an outer membrane Porin. Bacteria can develop resistance to the antibiotic by mutating the gene that encodes the Porin –  the antibiotic is then excluded from passing through the outer membrane. The scale used in this sculpture is 2.5 inch/nm (a magnification factor of 63 million). At this magnification a grain of rice would roughly span the distance between Seattle and Portland.
+		</div>
+	</div>
+	<div class="gallerypic represent"><img src="projects/porin/porin_0_big.jpg" class="image"><div class="gallerypic_desc">"Portal" - Bacterial Porin</div> </div>
+	<div class="gallerypic          "><img src="projects/porin/porin_1_big.jpg" class="image"><div class="gallerypic_desc">&nbsp;</div> </div>
+	<div class="gallerypic          "><img src="projects/porin/porin_2_big.jpg" class="image"><div class="gallerypic_desc">&nbsp;</div> </div>
+	<div class="gallerypic          "><img src="projects/porin/porin_3_big.jpg" class="image"><div class="gallerypic_desc">&nbsp;</div> </div>
+	<div class="gallerypic          "><img src="projects/porin/porin_4_big.jpg" class="image"><div class="gallerypic_desc">&nbsp;</div> </div>
+</div>
+
+<div class="project copper annealing" >
+  <div class="gallerypic projectdesc">
+		<div class="desctitle">The Annealing - DNA</div>
+		<div class="descmedia">Cast glass, Cast bronze, Vera wood - 16"x9"x11"</div>
+		<div class="descyear">2016<br><br></div>
+		<div class="desctext">
+    Two short complementary DNA strands have found each other and are annealing together to form one double-stranded DNA molecule. The ability of DNA to stick to itself in an extremely specific manner, like a programmable velcro, has been of great interest to research interested in developing nanomaterials. A huge variety of shapes, lattices, even small molecular machines can be constructed using DNA - the amazing thing is that the components can simply all be combined in solution and the structure builds itself. This has no equivalent in our macroscopic world. Throwing the parts of a kid’s puzzle into a tumble dryer would hardly result in the puzzle being solved. Yet at the microscopic scale the rules are different. Proteins exhibit a similar ability to fold themselves and assemble into larger complexes. This sort of self assembly is at the base of life itself; its parts constantly self assemble into working nanomachines which catalyse and manipulate other parts of living cells.
+		</div>
+	</div>
+	<div class="gallerypic represent"><img src="projects/annealing/img1sm.jpg" class="image"><div class="gallerypic_desc">"The Annealing" - DNA</div> </div>
+	<div class="gallerypic          "><img src="projects/annealing/img2.jpg" class="image"><div class="gallerypic_desc">&nbsp;</div> </div>
+	<div class="gallerypic          "><img src="projects/annealing/img3.jpg" class="image"><div class="gallerypic_desc">&nbsp;</div> </div>
+	<div class="gallerypic          "><img src="projects/annealing/img4.jpg" class="image"><div class="gallerypic_desc">&nbsp;</div> </div>
+</div>
+
+<div class="project copper kiss" >
+  <div class="gallerypic projectdesc">
+		<div class="desctitle">"Synaptic Kiss" - MHC and TCR</div>
+		<div class="descmedia">Cast glass, Cast aluminum</div>
+		<div class="descyear">2016<br><br></div>
+		<div class="desctext">
+    One of the most important parts of the human immune system is the interaction between the Major Histocompatibility Complex (MHC) and the T-Cell receptor.
+    The MHC is found on the surface of normal cells and special antigen presenting cells. The MHC presents on its surface small peptides which are small digested bits of proteins. The T-Cell scans these presented fragments using its receptor looking for any fragment that might be foreign. If an unauthorized sequence is detected it indicates that an intruding organism has entered the body and an immune response is mounted against any other cells showing the same signature. This is particularly important in fighting viral infection. Since viruses do not have their own metabolism they are difficult to “kill”. Instead their replication cycle is interrupted by circulating T-cells actively killing human host cells which are infected (and will betray their infection using the MHC-TCR mechanism).
+    There is a tight lock-and-key fit between MHC and TCR - a delicate and intimate interaction between two molecules whose surfaces are highly complementary. The peptide itself is cast in aluminum while the two partners, each composed from two separate subunits, are cast in glass.
+		</div>
+	</div>
+	<div class="gallerypic represent"><img src="projects/kiss/img1.jpg" class="image"><div class="gallerypic_desc">"Synaptic Kiss" - MHC and TCR</div> </div>
+	<div class="gallerypic          "><img src="projects/kiss/img2.jpg" class="image"><div class="gallerypic_desc">&nbsp;</div> </div>
+	<div class="gallerypic          "><img src="projects/kiss/img3.jpg" class="image"><div class="gallerypic_desc">&nbsp;</div> </div>
+	<div class="gallerypic          "><img src="projects/kiss/img4.jpg" class="image"><div class="gallerypic_desc">&nbsp;</div> </div>
+</div>
+
+<div class="project copper savior saviour" >
+  <div class="gallerypic projectdesc">
+		<div class="desctitle">"Savior" - IgG</div>
+		<div class="descmedia">Copper, Steel, Gold/Chrome plating - 56"x50"x18"</div>
+		<div class="descyear">2013 - Hutchinson Institute<br><br></div>
+		<div class="desctext">
+		The machinery of life, an inevitably complex system, must constantly defend itself from intrusion and subversion by other agents inhabiting the biosphere.  Ever more intricate systems for the detection and thwarting of intruding foreign life forms have evolved over the eons, culminating in adaptive immunity with one of its centerpieces: The Antibody. Also known as Immunoglobulin, this pronged, Y-shaped protein structure is capable of binding, blocking and neutralizing foreign objects such as as bacteria or viruses.
+		The two tips of the Y have special patches which can tightly recognize and bind a target. Our body generates astronomical numbers of variants, each recognizing a different shape. The variety is so great that completely alien molecules can be recognized even though the body has never encountered them before. Once bound, the antibody blocks the function of the foreign object by physically occluding its functional parts. The Antibody sacrifices itself in the process but not before signalling to the immune system to make more of its specific variant form. After the intruder in question has been fought off, memory cells remain in the bloodstream that can quickly be reactivated should reinfection occur to produce more of the successful variant Antibody.
+		</div>
+	</div>
+	<div class="gallerypic represent"><img src="projects/savior/DSC_8873_large.jpg" class="image"><div class="gallerypic_desc">"Savior" - IgG</div> </div>
+	<div class="gallerypic          "><img src="projects/savior/savior_2_big.jpg" class="image"><div class="gallerypic_desc">&nbsp;</div> </div>
+	<div class="gallerypic          "><img src="projects/savior/DSC_8931_large.jpg" class="image"><div class="gallerypic_desc">&nbsp;</div> </div>
+	<div class="gallerypic          "><img src="projects/savior/DSC_8976_large.jpg" class="image"><div class="gallerypic_desc">&nbsp;</div> </div>
+	<div class="gallerypic          "><img src="projects/savior/DSC_8977_large.jpg" class="image"><div class="gallerypic_desc">&nbsp;</div> </div>
+	<div class="gallerypic          "><img src="projects/savior/DSC_8914_rotated_large.jpg" class="image"><div class="gallerypic_desc">&nbsp;</div> </div>
+</div> 
+
+
+<div class="project copper dna1" >
+  <div class="gallerypic projectdesc">
+		<div class="desctitle">DNA Study 1</div>
+		<div class="descmedia">Cast lead glass, Steel- 9"x7"x4"</div>
+		<div class="descyear">2015<br><br></div>
+		<div class="desctext">
+    DNA, or deoxyribonucleic acid, is a two-stranded helical polymer which is used by virtually all known forms of life to encode genetic information. It is composed of repeating units called nucleotides of which there are four variants: Adenosine (A), Thymine (T),  Cytosine (C)  and Guanine (G). These are flat molecules which stack on top of each other like a set of double stairs, held together by a sugar-phosphate backbone which runs on the outside. This arrangement was famously discovered through work by Francis Crick, Rosalind Franklin, and James Watson. Critically, every A is paired with a T on the opposite strand and every G is paired with C. This means that each strand contains all the information needed to recreate the other, thus immediately suggesting a straightforward way in which the information could be copied. Indeed, during cell replication the strands separate and complex protein machinery rebuilds the opposite strand for each of the original single strands. Natural errors during this process lead to genetic drift and are a major component of the evolutionary forces that lead from the early simple organisms many billion years ago to the highly sophisticated ones found today.
+    Shown here is a short section of double-stranded DNA (about 11 nucleotide units) which would be only 3.6 nanometers long in reality. 
+		</div>
+	</div>
+	<div class="gallerypic represent"><img src="projects/dna1/dna1.jpg" class="image"><div class="gallerypic_desc">DNA Study I</div> </div>
 </div>
 
 <div class="project copper potassium" >
-  <div class="gallerypic projectdesc"> 
-		<div class="desctitle">KcsA Potassium Channel</div> 
+  <div class="gallerypic projectdesc">
+		<div class="desctitle">KcsA Potassium Channel</div>
 		<div class="descmedia">Copper, Steel - 14"x14"x20"</div>
 		<div class="descyear">2011<br><br></div>
 		<div class="desctext">
@@ -156,192 +268,280 @@ _gaq.push(['_trackPageview']);
  The KcsA is an archetypal membrane protein with eight tightly packed membrane-spanning a-helices.  The four short helices in the center where the chain crosses half the membrane and then returns to the top are a more unusual feature.
     </div>
 	</div>
-	<div class="gallerypic represent"><img src="projects/kcsa/kcsa_5_big.jpg" class="image"> </div>
-	<div class="gallerypic"><img src="projects/kcsa/kcsa_0_big.jpg" class="image"></div>
-	<div class="gallerypic"><img src="projects/kcsa/kcsa_4_big.jpg" class="image"></div>
-	<div class="gallerypic"><img src="projects/kcsa/kcsa_1_big.jpg" class="image"></div>
-	<div class="gallerypic"><img src="projects/kcsa/kcsa_2_big.jpg" class="image"></div>
-	<div class="gallerypic"><img src="projects/kcsa/kcsa_3_big.jpg" class="image"></div>
+	<div class="gallerypic represent"><img src="projects/kcsa/kcsa_5_big.jpg" class="image"><div class="gallerypic_desc">KcsA Potassium Channel</div> </div>
+	<div class="gallerypic          "><img src="projects/kcsa/kcsa_0_big.jpg" class="image"><div class="gallerypic_desc">&nbsp;</div></div>
+	<div class="gallerypic          "><img src="projects/kcsa/kcsa_4_big.jpg" class="image"><div class="gallerypic_desc">&nbsp;</div></div>
+	<div class="gallerypic          "><img src="projects/kcsa/kcsa_1_big.jpg" class="image"><div class="gallerypic_desc">&nbsp;</div></div>
+	<div class="gallerypic          "><img src="projects/kcsa/kcsa_2_big.jpg" class="image"><div class="gallerypic_desc">&nbsp;</div></div>
+	<div class="gallerypic          "><img src="projects/kcsa/kcsa_3_big.jpg" class="image"><div class="gallerypic_desc">&nbsp;</div></div>
 </div>
-
-<div class="project copper porin" >
-  <div class="gallerypic projectdesc"> 
-		<div class="desctitle">Bacterial Porin</div> 
-		<div class="descmedia">Copper, Steel, Wenge Wood - 12"x12"x24"</div>
-		<div class="descyear">2012 - Currently at Hutchinson Cancer Institute, Seattle <br><br></div>
-		<div class="desctext">
-The boundary of cellular life, which delineates the living chemistry from its surroundings, was among the most important fundamental inventions of evolution eons ago. Protein channels span these molecular castle walls and regulate the diffusional traffic of molecules trying to enter or leave the cell. One class of these molecular gatekeepers are the Porins, beta-barrel proteins that are situated in the outer membranes of cells or organelles such as human mitochondria. The Porin channel is partially blocked by a loop, called the eyelet, which projects into the cavity and defines the size of solute that can traverse the channel. Porins can be chemically selective, they can transport only one group of molecules, or may be specific to one molecule. For example, for antibiotics to be effective against a bacterium, it must often pass through an outer membrane Porin. Bacteria can develop resistance to the antibiotic by mutating the gene that encodes the Porin –  the antibiotic is then excluded from passing through the outer membrane.
-		</div>
-	</div>
-	<div class="gallerypic represent"><img src="projects/porin/porin_0_big.jpg" class="image"> </div>
-	<div class="gallerypic"><img src="projects/porin/porin_1_big.jpg" class="image"> </div>
-	<div class="gallerypic"><img src="projects/porin/porin_2_big.jpg" class="image"> </div>
-	<div class="gallerypic"><img src="projects/porin/porin_3_big.jpg" class="image"> </div>
-	<div class="gallerypic"><img src="projects/porin/porin_4_big.jpg" class="image"> </div>
-</div>
-
-<div class="project copper savior saviour" >
-  <div class="gallerypic projectdesc"> 
-		<div class="desctitle">Savior (IgG)</div> 
-		<div class="descmedia">Copper, Steel, Gold/Chrome plating - 56"x50"x18"</div>
-		<div class="descyear">2013 - Hutchinson Institute<br><br></div>
-		<div class="desctext">
-		The machinery of life, an inevitably complex system, must constantly defend itself from intrusion and subversion by other agents inhabiting the biosphere.  Ever more intricate systems for the detection and thwarting of intruding foreign life forms have evolved over the eons, culminating in adaptive immunity with one of its centerpieces: The Antibody. Also known as Immunoglobulin, this pronged, Y-shaped protein structure is capable of binding, blocking and neutralizing foreign objects such as as bacteria or viruses.
-		The two tips of the Y have special patches which can tightly recognize and bind a target. Our body generates astronomical numbers of variants, each recognizing a different shape. The variety is so great that completely alien molecules can be recognized even though the body has never encountered them before. Once bound, the antibody blocks the function of the foreign object by physically occluding its functional parts. The Antibody sacrifices itself in the process but not before signalling to the immune system to make more of its specific variant form. After the intruder in question has been fought off, memory cells remain in the bloodstream that can quickly be reactivated should reinfection occur to produce more of the successful variant Antibody.   
-		</div>
-	</div>
-	<div class="gallerypic represent"><img src="projects/savior/DSC_8873_large.jpg" class="image"> </div>
-	<div class="gallerypic"><img src="projects/savior/savior_2_big.jpg" class="image"> </div>
-	<div class="gallerypic"><img src="projects/savior/DSC_8931_large.jpg" class="image"> </div>
-	<div class="gallerypic"><img src="projects/savior/DSC_8976_large.jpg" class="image"> </div>
-	<div class="gallerypic"><img src="projects/savior/DSC_8977_large.jpg" class="image"> </div>
-	<div class="gallerypic"><img src="projects/savior/DSC_8914_rotated_large.jpg" class="image"> </div>
-</div> <!-- gal3 -->
-
 
 <div class="project copper prometheus" >
-  <div class="gallerypic projectdesc"> 
-		<div class="desctitle">Prometheus</div> 
+  <div class="gallerypic projectdesc">
+		<div class="desctitle">"Prometheus"</div>
 		<div class="descmedia">Copper, Steel, Walnut, Gold/Chrome plating - 10"x6"x6"</div>
 		<div class="descyear">2014 - Series of 3, private collection<br><br></div>
 		<div class="desctext">
 	It is a brave new world, moving from our mechanical world, born in the industrial revolution, to the biotechnological future.
-	The gears of life are complex, encoded polymers, nano machines that create order out of disorder and harness the free energy of the sun to perpetuate the information they carry in to the unknown. Now, man begins to alter that very microscopic machinery that constitutes his existence, that gives rise to his 
+	The gears of life are complex, encoded polymers, nano machines that create order out of disorder and harness the free energy of the sun to perpetuate the information they carry in to the unknown. Now, man begins to alter that very microscopic machinery that constitutes his existence, that gives rise to his
 	consciousness out of inorganic matter, ever driven forward by his curiosity and desire to manipulate his surroundings and himself.
 		</div>
 	</div>
-	<div class="gallerypic represent"><img src="projects/prometheus/DSC_2836_cropped_sm.jpg" class="image"> </div>
+	<div class="gallerypic represent"><img src="projects/prometheus/DSC_2836_cropped_sm.jpg" class="image"><div class="gallerypic_desc">Prometheus</div> </div>
 </div>
 
-<div class="project glass tears" >
-  <div class="gallerypic projectdescshort"> 
-		<div class="desctitle">Tears</div> 
-		<div class="descmedia">Cast bronze, Cast Glass, Wood - 20"x10"x12"</div>
-		<div class="descyear">2015<br><br></div>
-		<div class="desctext">Lysozyme enzyme with NAG-NAM glycan chain in active site. 
-		</div>
-	</div>
-	<div class="gallerypic represent"><img src="projects/tears/DSC_6266_rot_crop.jpg" class="image"> </div>
-</div>
-
-
-
-<div class="project glass whitechen" >
-  <div class="gallerypic projectdescshort"> 
-		<div class="desctitle">White-Chen catalyst</div> 
+<div class="project copper whitechen" >
+  <div class="gallerypic projectdesc">
+		<div class="desctitle">White-Chen catalyst</div>
 		<div class="descmedia">Cast lead glass, Steel, Magnets - 14"x12"x12"</div>
 		<div class="descyear">2015, private collection<br><br></div>
 		<div class="desctext">
 		</div>
 	</div>
-	<div class="gallerypic represent"><img src="projects/whitechen/DSC_4733_large.jpg" class="image"> </div>
-	<div class="gallerypic"><img src="projects/whitechen/DSC_4699_large.jpg" class="image"> </div>
+	<div class="gallerypic represent"><img src="projects/whitechen/DSC_4733_large.jpg" class="image"><div class="gallerypic_desc">White-Chen catalyst</div> </div>
+	<div class="gallerypic          "><img src="projects/whitechen/DSC_4699_large.jpg" class="image"><div class="gallerypic_desc">&nbsp;</div> </div>
 </div>
 
-
-<div class="project glass dna1" >
-  <div class="gallerypic projectdescshort"> 
-		<div class="desctitle">DNA Study 1</div> 
-		<div class="descmedia">Cast lead glass, Steel- 9"x7"x4"</div>
-		<div class="descyear">2015<br><br></div>
-		<div class="desctext">
-		</div>
-	</div>
-	<div class="gallerypic represent"><img src="projects/dna1/dna1.jpg" class="image"> </div>
-</div>
 
 
 <!-- INCEPTIONISM -->
 
-
 <div class="project inceptionism inceptionism1">
-  <div class="gallerypic projectdescshort"> 
-    <div class="desctitle">Inceptionism: Cities</div> 
-    <div class="descmedia">Convolutional neural net</div>
+  <div class="gallerypic projectdescshort">
+    <div class="desctitle">Inceptionism: Cities</div>
+    <div class="descmedia">Neural net, digital</div>
     <div class="descyear">2015<br><br></div>
     <div class="desctext">
     </div>
   </div>
-  <div class="gallerypic"><img src="projects/inceptionism/Iterative_Places205-GoogLeNet_3.jpg.sm.jpg" class="image"> </div>
+  <div class="gallerypic          "><img src="projects/inceptionism/Iterative_Places205-GoogLeNet_3.jpg.sm.jpg" class="image"> </div>
   <div class="gallerypic represent"><img src="projects/inceptionism/Iterative_Places205-GoogLeNet_4.jpg.sm.jpg" class="image"> </div>
-  <div class="gallerypic"><img src="projects/inceptionism/Iterative_Places205-GoogLeNet_6.jpg.sm.jpg" class="image"> </div>
-  <div class="gallerypic"><img src="projects/inceptionism/Iterative_Places205-GoogLeNet_8.jpg.sm.jpg" class="image"> </div>
+  <div class="gallerypic          "><img src="projects/inceptionism/Iterative_Places205-GoogLeNet_6.jpg.sm.jpg" class="image"> </div>
 </div>
 
 <div class="project inceptionism inceptionism2" >
-  <div class="gallerypic projectdescshort"> 
-    <div class="desctitle">Inceptionism: Patterns</div> 
-    <div class="descmedia">Convolutional neural net, chance</div>
+  <div class="gallerypic projectdescshort">
+    <div class="desctitle">Inceptionism: Patterns</div>
+    <div class="descmedia">Neural net, digital, chance</div>
     <div class="descyear">2015<br><br></div>
     <div class="desctext">
     </div>
   </div>
-  <div class="gallerypic"><img src="projects/inceptionism/Iterative_Places205-GoogLeNet_17.jpg.sm.jpg" class="image"> </div>
-  <div class="gallerypic"><img src="projects/inceptionism/Iterative_Places205-GoogLeNet_2.jpg.sm.jpg" class="image"> </div>
+  <div class="gallerypic          "><img src="projects/inceptionism/Iterative_Places205-GoogLeNet_17.jpg.sm.jpg" class="image"> </div>
+  <div class="gallerypic          "><img src="projects/inceptionism/Iterative_Places205-GoogLeNet_2.jpg.sm.jpg" class="image"> </div>
   <div class="gallerypic represent"><img src="projects/inceptionism/Iterative_Places205-GoogLeNet_12.jpg.sm.jpg" class="image"> </div>
-  <div class="gallerypic"><img src="projects/inceptionism/Iterative_Places205-GoogLeNet_13.jpg.sm.jpg" class="image"> </div>
-  <div class="gallerypic"><img src="projects/inceptionism/Iterative_Places205-GoogLeNet_10.jpg.sm.jpg" class="image"> </div>
+  <div class="gallerypic          "><img src="projects/inceptionism/Iterative_Places205-GoogLeNet_10.jpg.sm.jpg" class="image"> </div>
 </div>
 
 <div class="project inceptionism inceptionism3" >
-  <div class="gallerypic projectdescshort"> 
-    <div class="desctitle">Inceptionism: Landscapes</div> 
-    <div class="descmedia">Convolutional neural net, chance</div>
+  <div class="gallerypic projectdescshort">
+    <div class="desctitle">Inceptionism: Landscapes</div>
+    <div class="descmedia">Neural net, digital, chance</div>
     <div class="descyear">2015<br><br></div>
     <div class="desctext">
     </div>
   </div>
-  <div class="gallerypic"><img src="projects/inceptionism/Iterative_Places205-GoogLeNet_18.jpg.sm.jpg" class="image"> </div>
+  <div class="gallerypic          "><img src="projects/inceptionism/Iterative_Places205-GoogLeNet_18.jpg.sm.jpg" class="image"> </div>
   <div class="gallerypic represent"><img src="projects/inceptionism/Iterative_Places205-GoogLeNet_19.jpg.sm.jpg" class="image"> </div>
-  <div class="gallerypic"><img src="projects/inceptionism/Iterative_Places205-GoogLeNet_20.jpg.sm.jpg" class="image"> </div>
-  <div class="gallerypic"><img src="projects/inceptionism/Iterative_Places205-GoogLeNet_14.jpg.sm.jpg" class="image"> </div>
-  <div class="gallerypic"><img src="projects/inceptionism/Iterative_Places205-GoogLeNet_15.jpg.sm.jpg" class="image"> </div>
+  <div class="gallerypic          "><img src="projects/inceptionism/Iterative_Places205-GoogLeNet_20.jpg.sm.jpg" class="image"> </div>
+  <div class="gallerypic          "><img src="projects/inceptionism/Iterative_Places205-GoogLeNet_14.jpg.sm.jpg" class="image"> </div>
+  <div class="gallerypic          "><img src="projects/inceptionism/Iterative_Places205-GoogLeNet_15.jpg.sm.jpg" class="image"> </div>
 </div>
 
-<!-- INSTALLATION -->
+<div class="project inceptionism CastlesInTheSkyWithDiamonds">
+  <div class="gallerypic projectdescshort">
+    <div class="desctitle">Castles In The Sky With Diamonds</div>
+    <div class="descmedia">Neural net, Archival print, 60"x48"</div>
+    <div class="descyear">2016<br><br></div>
+    <div class="desctext">
+    </div>
+  </div>
+  <div class="gallerypic represent"><img src="projects/grayarea/CastlesInTheSkyWithDiamonds.jpg" class="image"> </div>
+</div>
+
+<div class="project inceptionism HowWeEndUpAtTheEndOfLife">
+  <div class="gallerypic projectdescshort">
+    <div class="desctitle">How We End Up At The End Of Life</div>
+    <div class="descmedia">Neural net, Archival print, 60"x48"</div>
+    <div class="descyear">2016<br><br></div>
+    <div class="desctext">Title generated by LSTM by Ross Goodwin. 
+    </div>
+  </div>
+  <div class="gallerypic represent"><img src="projects/grayarea/HowWeEndUpAtTheEndOfLife.jpg" class="image"> </div>
+</div>
+
+<div class="project inceptionism GodsBrigade">
+  <div class="gallerypic projectdescshort">
+    <div class="desctitle">Ground still state of God&rsquo;s original brigade</div>
+    <div class="descmedia">Neural net, Archival print, 60"x48"</div>
+    <div class="descyear">2016<br><br></div>
+    <div class="desctext">Title generated by LSTM by Ross Goodwin.
+    </div>
+  </div>
+  <div class="gallerypic represent"><img src="projects/grayarea/GodsBrigade.jpg" class="image"> </div>
+</div>
+
+<!-- DEEPDREAM -->
+
+<div class="project deepdream CarboniferousFantasy">
+  <div class="gallerypic projectdescshort">
+    <div class="desctitle">Carboniferous Fantasy</div>
+    <div class="descmedia">Neural net, Archival print, 60"x48"</div>
+    <div class="descyear">2016<br><br></div>
+    <div class="desctext">
+    </div>
+  </div>
+  <div class="gallerypic represent"><img src="projects/grayarea/CarboniferousFantasy.jpg" class="image"> </div>
+</div>
+
+<div class="project deepdream Jurogumo">
+  <div class="gallerypic projectdescshort">
+    <div class="desctitle">Jurogumo</div>
+    <div class="descmedia">Neural net, Archival print, 38"x31"</div>
+    <div class="descyear">2016<br><br></div>
+    <div class="desctext">
+    </div>
+  </div>
+  <div class="gallerypic represent"><img src="projects/grayarea/Jurogumo.jpg" class="image"> </div>
+</div>
+
+<div class="project deepdream Mukade">
+  <div class="gallerypic projectdescshort">
+    <div class="desctitle">Mukade</div>
+    <div class="descmedia">Neural net, Archival print, 38"x31"</div>
+    <div class="descyear">2016<br><br></div>
+    <div class="desctext">
+    </div>
+  </div>
+  <div class="gallerypic represent"><img src="projects/grayarea/Mukade.jpg" class="image"> </div>
+</div>
+
+<div class="project deepdream FabricOfMind">
+  <div class="gallerypic projectdescshort">
+    <div class="desctitle">Fabric Of Mind</div>
+    <div class="descmedia">Neural net, Archival print 100"x48"</div>
+    <div class="descyear">2016<br><br></div>
+    <div class="desctext">
+    </div>
+  </div>
+  <div class="gallerypic represent"><img src="projects/grayarea/FabricOfMind.jpg" class="image"> </div>
+</div>
+
+<div class="project deepdream TheBabylonOfTheBlueSun">
+  <div class="gallerypic projectdescshort">
+    <div class="desctitle">The Babylon Of The Blue Sun</div>
+    <div class="descmedia">Neural net, Archival print, 66"x50"</div>
+    <div class="descyear">2016<br><br></div>
+    <div class="desctext">Title generated by LSTM by Ross Goodwin.
+    </div>
+  </div>
+  <div class="gallerypic represent"><img src="projects/grayarea/TheBabylonOfTheBlueSun.jpg" class="image"> </div>
+</div>
+
+<div class="project deepdream TheFall">
+  <div class="gallerypic projectdescshort">
+    <div class="desctitle">The Fall</div>
+    <div class="descmedia">Neural net, Archival print, 71"x52"</div>
+    <div class="descyear">2016<br><br></div>
+    <div class="desctext">Title generated by LSTM by Ross Goodwin.
+    </div>
+  </div>
+  <div class="gallerypic represent"><img src="projects/grayarea/TheFall.jpg" class="image"> </div>
+</div>
+
+<div class="project deepdream HereWasTheFinalBlindHour">
+  <div class="gallerypic projectdescshort">
+    <div class="desctitle">Here Was The Final Blind Hour</div>
+    <div class="descmedia">Neural net, Archival print, 74"x52"</div>
+    <div class="descyear">2016<br><br></div>
+    <div class="desctext">Title generated by LSTM by Ross Goodwin.
+    </div>
+  </div>
+  <div class="gallerypic represent"><img src="projects/grayarea/HereWasTheFinalBlindHour.jpg" class="image"> </div>
+</div>
+
+
+<!-- STILLLIFE -->
+
+<div class="project stillife Bacchus">
+  <div class="gallerypic projectdescshort">
+    <div class="desctitle">Bacchus</div>
+    <div class="descmedia">Neural net, Archival print, 21"x21"</div>
+    <div class="descyear">2016<br><br></div>
+    <div class="desctext">
+    </div>
+  </div>
+  <div class="gallerypic represent"><img src="projects/grayarea/Bacchus.jpg" class="image"> </div>
+</div>
+
+<div class="project stillife StyleIsViolins">
+  <div class="gallerypic projectdescshort">
+    <div class="desctitle">Style Is Violins</div>
+    <div class="descmedia">Neural net, Archival print, 21"x21"</div>
+    <div class="descyear">2016<br><br></div>
+    <div class="desctext">
+    </div>
+  </div>
+  <div class="gallerypic represent"><img src="projects/grayarea/StyleIsViolins.jpg" class="image"> </div>
+</div>
+
+<div class="project stillife Cellism">
+  <div class="gallerypic projectdescshort">
+    <div class="desctitle">Cellism</div>
+    <div class="descmedia">Neural net, Archival print, 21"x21"</div>
+    <div class="descyear">2016<br><br></div>
+    <div class="desctext"> </div>
+  </div>
+  <div class="gallerypic represent"><img src="projects/grayarea/Cellism.jpg" class="image"> </div>
+</div>
+
+<div class="project stillife SaxophoneDreams">
+  <div class="gallerypic projectdescshort">
+    <div class="desctitle">Saxophone Dreams</div>
+    <div class="descmedia">Neural net, Archival print, 21"x21"</div>
+    <div class="descyear">2016<br><br></div>
+    <div class="desctext"> </div>
+  </div>
+  <div class="gallerypic represent"><img src="projects/grayarea/SaxophoneDreams.jpg" class="image"> </div>
+</div>
+
+<!-- GROOVIKSCUBE -->
 
 <div class="project installation groovikscube" >
-  <div class="gallerypic projectdesc"> 
-		<div class="desctitle">Groovik's Cube</div> 
+  <div class="gallerypic projectdesc">
+		<div class="desctitle">Groovik&rsquo;s Cube</div>
 		<div class="descyear">2009-2014<br>Libery Science Center, NJ</div>
 		<div class="desctext">
 					<br>
-          <i><b>Groovik&rsquo;s Cube</b></i> is a fully playable, 35ft-high sculpture inspired by the classic puzzle, Rubik&rsquo;s Cube. It was built by Mike Tyka, Barry Brumitt and a team of artists and engineers from Seattle in 2009. It is, to our knowledge, the largest functional Rubik&rsquo;s Cube structure in the world. Groovik&rsquo;s Cube is controlled from 3 control stations that surround the main structure - each player is able to rotate only one axis, creating an entirely new, collaborative puzzle solving experience. 
+          <i><b>Groovik&rsquo;s Cube</b></i> is a fully playable, 35ft-high sculpture inspired by the classic puzzle, Rubik&rsquo;s Cube. It was built by Mike Tyka, Barry Brumitt and a team of artists and engineers from Seattle in 2009. It is, to our knowledge, the largest functional Rubik&rsquo;s Cube structure in the world. Groovik&rsquo;s Cube is controlled from 3 control stations that surround the main structure - each player is able to rotate only one axis, creating an entirely new, collaborative puzzle solving experience.
 
-				<br><br>	
+				<br><br>
 					<i><b>Groovik&rsquo;s Cube</b></i> offers a unique new playing mode where three players must collaborate to solve the classic Rubik&rsquo;s cube puzzle. The cube is controlled via three touch screen interfaces located around the cube, with each interface capable of rotating only one axis of the cube - no single player can solve the cube alone. This innovative twist adds a completely new dimension to the game and turns the classic puzzle into a social game and a fascinating social spectacle.
 		</div>
   </div>
-  <div class="gallerypic" align="left" ><img src="projects/groovikscube/groovelsc_0.jpg" class="image"><div class="gallerypic_desc">Liberty Science Center, 2013, NJ</div></div>
+  <div class="gallerypic          " align="left" ><img src="projects/groovikscube/groovelsc_0.jpg" class="image"><div class="gallerypic_desc">Liberty Science Center, 2013, NJ</div></div>
 	<div class="gallerypic represent" align="left" ><img src="projects/groovikscube/cube15_big.jpg" class="image"><div class="gallerypic_desc">Burning Man 2009, Nevada</div></div>
-	
-  <div class="gallerypic projectdesc"> 
+
+  <div class="gallerypic projectdesc">
 		<div class="desctext">
-					<i><b>Groovik&rsquo;s Cube</b></i> is built from a lightweight aluminum frame, covered in fabric, and illuminated from the inside by 2 kilowatts of high-power LEDs. It simulates the motion of an ordinary Rubik&rsquo;s Cube by animating the rotations on the 54 &quot;pixels&quot; that comprise the cube. The total weight of the structure is around 2000 lbs and is designed such that participants may walk safely under the structure. The thin supports are virtually invisible from a distance, creating the magical illusion of a floating cube. 
-
-
-				<br>
-				<br>
-				<a href="http://www.youtube.com/watch?v=PyYiMzpb67I"><u>VIDEO: Timelapse of the installation</u></a><br>
-				<a href="http://www.youtube.com/watch?v=6qOVOou13mY"><u>VIDEO: Speedcubers playing Groovik's Cube</u></a><br>
-		
+					<i><b>Groovik&rsquo;s Cube</b></i> is built from a lightweight aluminum frame, covered in fabric, and illuminated from the inside by 2 kilowatts of high-power LEDs. It simulates the motion of an ordinary Rubik&rsquo;s Cube by animating the rotations on the 54 &quot;pixels&quot; that comprise the cube. The total weight of the structure is around 2000 lbs and is designed such that participants may walk safely under the structure. The thin supports are virtually invisible from a distance, creating the magical illusion of a floating cube.
 		</div>
   </div>
 	<div class="gallerypic " align="left" ><img src="projects/groovikscube/groovelsc_1.jpg" class="image"><div class="gallerypic_desc">Liberty Science Center, NJ</div></div>
-	<div class="gallerypic" align="left" ><img src="projects/groovikscube/cube0_big.jpg" class="image"><div class="gallerypic_desc">Burning Man 2009, Nevada</div></div>
-	<div class="gallerypic" align="left" ><img src="projects/groovikscube/cube1_big.jpg" class="image"><div class="gallerypic_desc">Burning Man 2009, Nevada</div></div>
-	<div class="gallerypic" align="left" ><img src="projects/groovikscube/cube4_big.jpg" class="image"><div class="gallerypic_desc">Burning Man 2009, Nevada</div></div>
-	<div class="gallerypic" align="left" ><img src="projects/groovikscube/cube2_big.jpg" class="image"><div class="gallerypic_desc">Burning Man 2009, Nevada</div></div>
-	<div class="gallerypic" align="left" ><img src="projects/groovikscube/cube11_big.jpg" class="image"><div class="gallerypic_desc">Burning Man 2009, Nevada</div></div>
-	<div class="gallerypic" align="left" ><img src="projects/groovikscube/cube7_big.jpg" class="image"><div class="gallerypic_desc">Burning Man 2009, Nevada</div></div>
-	<div class="gallerypic" align="left" ><img src="projects/groovikscube/cube8_big.jpg" class="image"><div class="gallerypic_desc">Pacific Science Center, 2011, Seattle</div></div>
-	<div class="gallerypic" align="left" ><img src="projects/groovikscube/cube9_big.jpg" class="image"><div class="gallerypic_desc">Burning Man 2009, Nevada</div></div>
-	<div class="gallerypic" align="left" ><img src="projects/groovikscube/cube10_big.jpg" class="image"><div class="gallerypic_desc">Burning Man 2009, Nevada</div></div>
-	<div class="gallerypic" align="left" ><img src="projects/groovikscube/cube14_big.jpg" class="image"><div class="gallerypic_desc">Burning Man 2009, Nevada</div></div>
-	<div class="gallerypic" align="left" >
-		<iframe width="667" height="500" src="https://www.youtube.com/embed/PyYiMzpb67I?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>	
+	<div class="gallerypic          " align="left" ><img src="projects/groovikscube/cube0_big.jpg" class="image"><div class="gallerypic_desc">Burning Man 2009, Nevada</div></div>
+	<div class="gallerypic          " align="left" ><img src="projects/groovikscube/cube1_big.jpg" class="image"><div class="gallerypic_desc">Burning Man 2009, Nevada</div></div>
+	<div class="gallerypic          " align="left" ><img src="projects/groovikscube/cube4_big.jpg" class="image"><div class="gallerypic_desc">Burning Man 2009, Nevada</div></div>
+	<div class="gallerypic          " align="left" ><img src="projects/groovikscube/cube2_big.jpg" class="image"><div class="gallerypic_desc">Burning Man 2009, Nevada</div></div>
+	<div class="gallerypic          " align="left" ><img src="projects/groovikscube/cube11_big.jpg" class="image"><div class="gallerypic_desc">Burning Man 2009, Nevada</div></div>
+	<div class="gallerypic          " align="left" ><img src="projects/groovikscube/cube7_big.jpg" class="image"><div class="gallerypic_desc">Burning Man 2009, Nevada</div></div>
+	<div class="gallerypic          " align="left" ><img src="projects/groovikscube/cube8_big.jpg" class="image"><div class="gallerypic_desc">Pacific Science Center, 2011, Seattle</div></div>
+	<div class="gallerypic          " align="left" ><img src="projects/groovikscube/cube9_big.jpg" class="image"><div class="gallerypic_desc">Burning Man 2009, Nevada</div></div>
+	<div class="gallerypic          " align="left" ><img src="projects/groovikscube/cube10_big.jpg" class="image"><div class="gallerypic_desc">Burning Man 2009, Nevada</div></div>
+	<div class="gallerypic          " align="left" ><img src="projects/groovikscube/cube14_big.jpg" class="image"><div class="gallerypic_desc">Burning Man 2009, Nevada</div></div>
+	<div class="gallerypic          " align="left" >
+		<iframe width="667" height="500" src="https://www.youtube.com/embed/PyYiMzpb67I?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 	</div>
-	<div class="gallerypic" align="left" >
+	<div class="gallerypic          " align="left" >
 		<iframe width="667" height="500" src="https://www.youtube.com/embed/6qOVOou13mY?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 	</div>
 </div>
@@ -349,20 +549,20 @@ The boundary of cellular life, which delineates the living chemistry from its su
 <div class="project about" >
 		<div class="gallerypic projectdesc">
 					<p>
-					Mike Tyka studied Biochemistry and Biotechnology at the University of Bristol. He obtained his PhD in Biophysics 
-					in 2007 and went on to work as a research fellow at the University of Washington and has 
-					been studying the structure and dynamics of protein molecules. In particular, he 
-					has been interested in protein folding and has been writing computer simulation 
-					software to better understand this fascinating process. Protein folding is the way 
-					our genetic code is interpreted from an abstract sequence of data into the functional 
+					Mike Tyka studied Biochemistry and Biotechnology at the University of Bristol. He obtained his PhD in Biophysics
+					in 2007 and went on to work as a research fellow at the University of Washington and has
+					been studying the structure and dynamics of protein molecules. In particular, he
+					has been interested in protein folding and has been writing computer simulation
+					software to better understand this fascinating process. Protein folding is the way
+					our genetic code is interpreted from an abstract sequence of data into the functional
 					enzymes and nano machines that drive our bodies.
 					Mike currently works at Google in Seattle. <br><br>
 					</p>
-					<p>Mike became involved in creating sculpture and art in 2009 when he helped design and 
-					construct <a href="http://www.miketyka.com/#groovikscube">Groovik's Cube</a>, a 35ft tall, functional, multi-player Rubik's cube. Since 
-					then he's co-founded <a href="http://www.airlighttimespace.org">ALTSpace</a>, a shared art studio in Seattle, and started creating sculptures 
-					of protein folds. He hopes to capture some of the hidden beauty of these amazing molecules, make it 
-					accessible to the general public, and maybe act as inspiration for those who want to learn 
+					<p>Mike became involved in creating sculpture and art in 2009 when he helped design and
+					construct <a href="http://www.miketyka.com/#groovikscube">Groovik's Cube</a>, a 35ft tall, functional, multi-player Rubik's cube. Since
+					then he's co-founded <a href="http://www.airlighttimespace.org">ALTSpace</a>, a shared art studio in Seattle, and started creating sculptures
+					of protein folds. He hopes to capture some of the hidden beauty of these amazing molecules, make it
+					accessible to the general public, and maybe act as inspiration for those who want to learn
 					more about these fascinating molecules that make life possible.
 					</p>
 					<br>
@@ -370,7 +570,7 @@ The boundary of cellular life, which delineates the living chemistry from its su
           For more information on the pieces or for commissions contact him at:
           <p>Email: <a href="emailto:mike.tyka@gmail.com">mike.tyka@gmail.com</a> </p>
     </div>
-		<div class="gallerypic">
+		<div class="gallerypic          ">
       <img src='pics/mike.jpg' class='image'>
     </div>
 </div>
