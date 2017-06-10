@@ -139,7 +139,7 @@ function interpretUrlState() {
 		// Check for oldstyle URL format (existing links)
 		let hash = window.location.hash.substring(1);
 		if(hash) {
-			showproject(hash, false);
+			window.location = "?p="+hash;
 		} else {
 			mainmenu("", false);
 		}
