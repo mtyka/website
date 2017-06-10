@@ -152,8 +152,8 @@ function onDOMReady() {
 	interpretUrlState();
 	if (isMobile()) {
 		// Make all project pages single column:
-		imagedivs = document.getElementsByClassName("image")
-		for(let i in imagedivs) {
+		let imagedivs = document.getElementsByClassName("image")
+		for(i=0; i<imagedivs.length; ++i) {
 			imagedivs[i].classList.add("wide")
 		}
 	}
