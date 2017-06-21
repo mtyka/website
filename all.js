@@ -1,7 +1,25 @@
+
+// Defines what it means to present the mobile version.
 function isMobile() {
 	return screen.width < 700;
 }
 
+
+// Finds all the img elements in the div and for all those that dont have the
+// src attribute set use the data-src attribute to set src. This will cause the 
+// browser to actually load them.
+
+function loadImagesInDiv(div) {
+  let imgs = div.getElementsByTagName("img");
+  for(let img of imgs) {
+    if(img.src == "") {
+      console.log(img);
+      img.src = img.getAttribute('data-src');
+    }
+  }
+}
+
+// Render a specific project page.
 function showproject(id, pushState=true) {
 	if(pushState) {
 		history.pushState(null, null, '/?p='+id);    
@@ -10,11 +28,13 @@ function showproject(id, pushState=true) {
 	let menu = document.getElementById("menu");
 	let projectdiv = document.getElementById("projects");
 	let projects = document.getElementsByClassName("project");
-	if(!id || !document.getElementById(id)) {
+	let id_div = document.getElementById(id);
+  if(!id || !id_div) {
 		mainmenu("");
 		return;
 	} else {
-		menu.style.display = "none";
+		loadImagesInDiv(id_div);
+    menu.style.display = "none";
 		for (let project of projects) {
 			if(project.id == id) {
 				project.style.display = "block";
@@ -27,6 +47,7 @@ function showproject(id, pushState=true) {
 	hideSpinner();
 }
 
+// Show a menu grid
 function constructMenuTable(listOfDivs, id, dummy_elements) {
 	let table = document.getElementById(id);
 	table.innerHTML = "";
@@ -44,6 +65,8 @@ function constructMenuTable(listOfDivs, id, dummy_elements) {
 	}
 }
 
+// Create a div containing a cover picture and a title and year for 
+// the project.
 function makeProjectMenuItem(project) {
 		let box = document.createElement("div");
 		box.classList.add("box");
@@ -146,8 +169,10 @@ function interpretUrlState() {
 	}
 }
 
+// When browser clicks "back" reinterpret state
 window.addEventListener('popstate', interpretUrlState);
 
+// Called after DOM (but not images) are loaded
 function onDOMReady() {
 	interpretUrlState();
 	if (isMobile()) {
@@ -159,6 +184,7 @@ function onDOMReady() {
 	}
 }
 
+// Register onDOMReady() to be called in a cross browser way.
 var alreadyrunflag=0; //flag to indicate whether target function has already been run
 if (document.addEventListener) {
 	document.addEventListener("DOMContentLoaded", function(){alreadyrunflag=1; onDOMReady()}, false)
