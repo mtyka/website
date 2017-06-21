@@ -10,10 +10,10 @@ function isMobile() {
 // browser to actually load them.
 
 function loadImagesInDiv(div) {
-  let imgs = div.getElementsByTagName("img");
-  for(let img of imgs) {
+  var imgs = div.getElementsByTagName("img");
+	for(var i = 0; i < imgs.length; i++) {
+		var img = imgs[i];
     if(img.src == "") {
-      console.log(img);
       img.src = img.getAttribute('data-src');
     }
   }
@@ -25,17 +25,18 @@ function showproject(id, pushState=true) {
 		history.pushState(null, null, '/?p='+id);    
 	}
 	window.scrollTo(0,0);
-	let menu = document.getElementById("menu");
-	let projectdiv = document.getElementById("projects");
-	let projects = document.getElementsByClassName("project");
-	let id_div = document.getElementById(id);
+	var menu = document.getElementById("menu");
+	var projectdiv = document.getElementById("projects");
+	var projects = document.getElementsByClassName("project");
+	var id_div = document.getElementById(id);
   if(!id || !id_div) {
 		mainmenu("");
 		return;
 	} else {
 		loadImagesInDiv(id_div);
     menu.style.display = "none";
-		for (let project of projects) {
+		for (var i = 0; i < projects.length; i++) {
+		  var project = projects[i];
 			if(project.id == id) {
 				project.style.display = "block";
 			} else {
@@ -49,16 +50,16 @@ function showproject(id, pushState=true) {
 
 // Show a menu grid
 function constructMenuTable(listOfDivs, id, dummy_elements) {
-	let table = document.getElementById(id);
+	var table = document.getElementById(id);
 	table.innerHTML = "";
-	for(let i in listOfDivs) {
-		const d = listOfDivs[i];
+	for(var i=0; i < listOfDivs.length; i++) {
+		var d = listOfDivs[i];
 		table.appendChild(d); 
 	}
 
 	// Add padding elements
-	for(let i=0;i<dummy_elements;i++) {
-		let pad = document.createElement("div");
+	for(var i=0;i<dummy_elements;i++) {
+		var pad = document.createElement("div");
 		pad.classList.add("box");
 		pad.classList.add("boxpad");
 		table.appendChild(pad);
@@ -68,7 +69,7 @@ function constructMenuTable(listOfDivs, id, dummy_elements) {
 // Create a div containing a cover picture and a title and year for 
 // the project.
 function makeProjectMenuItem(project) {
-		let box = document.createElement("div");
+		var box = document.createElement("div");
 		box.classList.add("box");
 		if(project.classList.contains("topmenu")) {
 			box.onclick = function() { 
@@ -79,10 +80,10 @@ function makeProjectMenuItem(project) {
 				showproject(project.id); 
 			}; 
 		}
-		let crop = document.createElement("div");
+		var crop = document.createElement("div");
 		
 		crop.classList.add("crop");
-		let coverimg = document.createElement("img");
+		var coverimg = document.createElement("img");
 		cover_image = project.getElementsByClassName("coverimg");
 		if (cover_image.length > 0) {
 			coverimg.classList.add("coverimg");
@@ -93,9 +94,9 @@ function makeProjectMenuItem(project) {
 		}
 		crop.appendChild(coverimg);
 		box.appendChild(crop);
-		let title = project.getElementsByClassName("desctitle")[0]
-		let media = project.getElementsByClassName("descmedia")[0]
-		let year =  project.getElementsByClassName("descyear")[0]
+		var title = project.getElementsByClassName("desctitle")[0]
+		var media = project.getElementsByClassName("descmedia")[0]
+		var year =  project.getElementsByClassName("descyear")[0]
 		if(title) box.appendChild(title.cloneNode(true));
 		if(media) box.appendChild(media.cloneNode(true));
 		if(year) box.appendChild(year.cloneNode(true));
@@ -104,10 +105,11 @@ function makeProjectMenuItem(project) {
 }
 
 function getFilteredProjects(classname) {
-	const projectContainer = document.getElementById("projects")
-	const projects = projectContainer.getElementsByClassName(classname);
-	let filtered_projects = [];
-	for(let project of projects) {
+	var projectContainer = document.getElementById("projects")
+	var projects = projectContainer.getElementsByClassName(classname);
+	var filtered_projects = [];
+	for (var i = 0; i < projects.length; i++) {
+		var project = projects[i];
 		filtered_projects.push(makeProjectMenuItem(project));
 	}
 	return filtered_projects;
@@ -152,7 +154,7 @@ function getJsonFromUrl() {
 }
 
 function interpretUrlState() {
-	const params = getJsonFromUrl();  
+	var params = getJsonFromUrl();  
 	if(params["p"]){
 		showproject(params["p"], false)
 	} else
@@ -160,7 +162,7 @@ function interpretUrlState() {
 		mainmenu(params["s"], false);
 	} else {
 		// Check for oldstyle URL format (existing links)
-		let hash = window.location.hash.substring(1);
+		var hash = window.location.hash.substring(1);
 		if(hash) {
 			window.location = "?p="+hash;
 		} else {
@@ -177,7 +179,7 @@ function onDOMReady() {
 	interpretUrlState();
 	if (isMobile()) {
 		// Make all project pages single column:
-		let imagedivs = document.getElementsByClassName("image")
+		var imagedivs = document.getElementsByClassName("image")
 		for(i=0; i<imagedivs.length; ++i) {
 			imagedivs[i].classList.add("wide")
 		}
