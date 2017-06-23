@@ -20,7 +20,7 @@ function loadImagesInDiv(div) {
 }
 
 // Render a specific project page.
-function showproject(id, pushState=true) {
+function showproject(id, pushState) {
 	if(pushState) {
 		history.pushState(null, null, '/?p='+id);    
 	}
@@ -77,7 +77,7 @@ function makeProjectMenuItem(project) {
 			};
 		} else {
 			box.onclick = function() { 
-				showproject(project.id); 
+				showproject(project.id, true); 
 			}; 
 		}
 		var crop = document.createElement("div");
@@ -115,7 +115,7 @@ function getFilteredProjects(classname) {
 	return filtered_projects;
 }
 
-function mainmenu(classname, pushState=true) {
+function mainmenu(classname, pushState) {
 	if(pushState) {
 		history.pushState(null, null, '/?s='+classname);
 	}
@@ -143,13 +143,15 @@ function hideSpinner() {
 function getJsonFromUrl() {
 	var query = location.search.substr(1);
 	var result = {};
-	query.split("&").forEach(function(part) {
+	var split_query = query.split("&");
+	for(i=0; i<split_query.length; i++) {
+	  var part = split_query[i];
 		var item = part.split("=");
 		if(item[1]) {
 			item[1] = item[1].replace(/\/$/, "");
 		}
 		result[item[0]] = decodeURIComponent(item[1]);
-	});
+	};
 	return result;
 }
 
@@ -176,6 +178,7 @@ window.addEventListener('popstate', interpretUrlState);
 
 // Called after DOM (but not images) are loaded
 function onDOMReady() {
+	console.log("ONDOMREADY");
 	interpretUrlState();
 	if (isMobile()) {
 		// Make all project pages single column:
