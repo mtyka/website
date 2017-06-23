@@ -94,19 +94,19 @@ function makeProjectMenuItem(project) {
   }
   crop.appendChild(coverimg);
   box.appendChild(crop);
-  var title = project.getElementsByClassName("desctitle")[0]
-    var media = project.getElementsByClassName("descmedia")[0]
-    var year =  project.getElementsByClassName("descyear")[0]
-    if(title) box.appendChild(title.cloneNode(true));
-  if(media) box.appendChild(media.cloneNode(true));
+	var title = project.getElementsByClassName("desctitle")[0];
+	var media = project.getElementsByClassName("descmedia")[0];
+	var year =  project.getElementsByClassName("descyear")[0];
+	if(title) box.appendChild(title.cloneNode(true));
+	if(media) box.appendChild(media.cloneNode(true));
   if(year) box.appendChild(year.cloneNode(true));
 
   return box;
 }
 
 function getFilteredProjects(classname) {
-  var projectContainer = document.getElementById("projects")
-    var projects = projectContainer.getElementsByClassName(classname);
+  var projectContainer = document.getElementById("projects");
+  var projects = projectContainer.getElementsByClassName(classname);
   var filtered_projects = [];
   for (var i = 0; i < projects.length; i++) {
     var project = projects[i];
@@ -178,7 +178,6 @@ window.addEventListener('popstate', interpretUrlState);
 
 // Called after DOM (but not images) are loaded
 function onDOMReady() {
-  console.log("ONDOMREADY");
   interpretUrlState();
   if (isMobile()) {
     // Make all project pages single column:
@@ -192,15 +191,15 @@ function onDOMReady() {
 // Register onDOMReady() to be called in a cross browser way.
 var alreadyrunflag=0; //flag to indicate whether target function has already been run
 if (document.addEventListener) {
-  document.addEventListener("DOMContentLoaded", function(){alreadyrunflag=1; onDOMReady()}, false)
+	document.addEventListener("DOMContentLoaded", function(){alreadyrunflag=1; onDOMReady()}, false);
 } else if (document.all && !window.opera){
-  document.write('<script type="text/javascript" id="contentloadtag" defer="defer" src="javascript:void(0)"><\/script>')
-    var contentloadtag=document.getElementById("contentloadtag")
-    contentloadtag.onreadystatechange=function(){
-      if (this.readyState=="complete"){
-        alreadyrunflag=1
-          onDOMReady()
-      }
-    }
+	document.write('<script type="text/javascript" id="contentloadtag" defer="defer" src="javascript:void(0)"><\/script>');
+	var contentloadtag=document.getElementById("contentloadtag");
+	contentloadtag.onreadystatechange=function(){
+		if (this.readyState=="complete"){
+			alreadyrunflag=1
+				onDOMReady();
+		}
+	}
 }
 
