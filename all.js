@@ -73,7 +73,7 @@ function makeProjectMenuItem(project) {
   box.classList.add("box");
   if(project.classList.contains("topmenu")) {
     box.onclick = function() { 
-      mainmenu(project.id); 
+      mainmenu(project.id, true); 
     };
   } else {
     box.onclick = function() { 
@@ -117,7 +117,7 @@ function getFilteredProjects(classname) {
 
 function mainmenu(classname, pushState) {
   if(pushState) {
-    history.pushState(null, null, '/?s='+classname);
+		history.pushState(null, null, '/?s='+classname);
   }
   window.scrollTo(0,0);
   toplevel = document.getElementById("toplevel");
