@@ -1,0 +1,114 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script type="text/javascript" src="js/processing.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(["_setAccount", "UA-15384464-1"]);
+  _gaq.push(["_trackPageview"]);
+
+  (function() {
+   var ga = document.createElement("script"); ga.type = "text/javascript"; ga.async = true;
+   ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";
+   var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ga, s);
+   })();
+</script>
+<script type="text/javascript">
+  var processing
+  var data
+  var image_x
+  var image_no = Math.floor(Math.random()*255);
+  var frame_no = 0;
+  function padTo(number, pad) {
+    var conststr = ('' + number).slice(-pad);
+    return ("00000000000000000000"+conststr).slice(-Math.max(pad, conststr.length));
+  }
+  function init() {
+    if (!processing) {
+      console.log("Init")
+      processing = Processing.getInstanceById('canvas');
+      load_img()
+      setInterval(function(){load_img()},       1500); 
+      canvas_x = window.innerWidth
+      canvas_y = window.innerHeight
+    }
+  }
+  function load_img() {
+    var image = new Image();
+
+    image.src = 'faces/s.' + padTo(image_no, 6) + '.' + padTo(frame_no, 3) + '.jpg.laplacian2.jpg';
+    frame_no += 2;
+    if(frame_no >= 64) {
+      frame_no = 0;
+      image_no += 1;
+      if(image_no>255){
+        image_no = 0;
+      }
+    }
+    
+    console.log("Loading Image: " + image.src);
+    image.onload = function(){ 
+      img_canvas = document.getElementById('image')
+      img_canvas.width  = image.width 
+      img_canvas.height = image.height
+
+      img_context = img_canvas.getContext('2d')
+      img_context.drawImage(image, 0, 0);
+      data = document.getElementById('image').getContext('2d').getImageData(0, 0, image.width, image.height).data;
+      image_x = image.width
+      image_y = image.height
+    }
+  }
+  get_pixel_color = function(x, y) {
+    if(!data) {
+      return processing.color(127,127,127)
+    }
+    var scale_x = (image_x)/(canvas_x)
+    var scale_y = (image_y)/(canvas_y)
+    var scale = scale_x
+    if(scale_y < scale_x) scale = scale_y
+    dx = ((canvas_x*scale)-image_x)/2
+    dy = ((canvas_y*scale)-image_y)/2
+    x = Math.round(x*scale-dx)
+    y = Math.round(y*scale-dy)
+    if ((x<0)||(x>=image_x)||(y<0)||(y>=image_y)) { 
+      return processing.color(0,0,0) 
+    }
+    data_index = y*image_x*4+x*4
+    return processing.color(
+      data[data_index+0],
+      data[data_index+1],
+      data[data_index+2])
+  }
+</script>
+<style>
+body {
+  background: #000;
+}
+
+#image {
+  display:none;
+}
+
+#credit {
+  position: fixed;
+	z-index: 100;
+	right:20;
+	bottom:8;
+	color:#ccc;
+	font-family: Sans-Serif;
+	font-size: 9px;
+}
+
+</style>
+</head>
+
+<body> 
+<div id="container" style="position:absolute; top:0px; left:0px">
+<canvas id="canvas" data-processing-sources="canvas.pde" width="100%" height="100%"></canvas>
+<canvas id="image"></canvas>
+<div id="credit">"Portraits of Imaginary People" by Mike Tyka, 2017</div>
+</div>
+</body>
+</html>
+
