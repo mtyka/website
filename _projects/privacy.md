@@ -1,0 +1,19 @@
+---
+title: "Privacy Dinner"
+media: "With Allegra Searle-LeBel and Maxime Billet"
+year: "2015"
+cover_image: "projects/privacy.jpg"
+tags: [collaborations, performance]
+order: 63
+render_with_liquid: false
+project_id: "privacy"
+---
+
+<img data-src="projects/privacy/10.jpg" class="image">
+<img data-src="projects/privacy/17.jpg" class="image">
+<img data-src="projects/privacy/22.jpg" class="image">
+<img data-src="projects/privacy/24.jpg" class="image">
+<img data-src="projects/privacy/28.jpg" class="image">
+<img data-src="projects/privacy/31.jpg" class="image">
+<img data-src="projects/privacy/34.jpg" class="image">
+<img data-src="projects/privacy/45.jpg" class="image">

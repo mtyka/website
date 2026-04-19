@@ -1,0 +1,21 @@
+---
+title: "DNA Study 1"
+media: "Cast lead glass, Steel- 9\"x7\"x4\""
+year: "2015"
+cover_image: "projects/dna1.jpg"
+tags: [copper, molecule]
+order: 6
+render_with_liquid: false
+project_id: "dna1"
+---
+
+---
+
+<img data-src="projects/dna1/dna1.jpg" class="image wide">
+
+---
+
+DNA, or deoxyribonucleic acid, is a two-stranded helical polymer which is used by virtually all known forms of life to encode genetic information. It is composed of repeating units called nucleotides of which there are four variants: Adenosine (A), Thymine (T),  Cytosine (C)  and Guanine (G). These are flat molecules which stack on top of each other like a set of double stairs, held together by a sugar-phosphate backbone which runs on the outside. This arrangement was famously discovered through work by Francis Crick, Rosalind Franklin, and James Watson. Critically, every A is paired with a T on the opposite strand and every G is paired with C. This means that each strand contains all the information needed to recreate the other, thus immediately suggesting a straightforward way in which the information could be copied. Indeed, during cell replication the strands separate and complex protein machinery rebuilds the opposite strand for each of the original single strands. Natural errors during this process lead to genetic drift and are a major component of the evolutionary forces that lead from the early simple organisms many billion years ago to the highly sophisticated ones found today.
+      Shown here is a short section of double-stranded DNA (about 11 nucleotide units) which would be only 3.6 nanometers long in reality.
+
+---

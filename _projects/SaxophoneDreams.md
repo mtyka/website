@@ -1,0 +1,16 @@
+---
+title: "Saxophone Dreams"
+media: "Neural net, Archival print, 21\"x21\", SOLD"
+year: "2016"
+cover_image: "projects/grayarea/coverimg/SaxophoneDreams.jpg.small.jpg"
+tags: [digital, deepdream, stillife]
+order: 29
+render_with_liquid: false
+project_id: "SaxophoneDreams"
+---
+
+---
+
+<img data-src="projects/grayarea/SaxophoneDreams.jpg" class="image wide">
+
+---

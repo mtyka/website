@@ -1,0 +1,24 @@
+---
+title: "Beyond the Metaphors"
+media: "With Kaoru Okumura and Robin Buerki"
+year: "2016"
+cover_image: "projects/butoh.jpg"
+tags: [collaborations, performance]
+order: 64
+render_with_liquid: false
+project_id: "butoh"
+---
+
+Butoh dancer Kaoru Okomura and Mike Tyka collaborated on a performance for the Seattle Butoh Festival and the [Seattle 9e2 event](www.9e2seattle.com) The piece combines the intensity of Butoh with the strange and wonderful nature of the DeepDream algorithm.
+
+The artists first experimented with wall projections, but the white attire and makeup of Butoh suggested an opportunity to project directly onto the dancers bodies. To obtain a stable projected image, the artists rigged a projector with a Kinect sensor and a steady cam. After conducting several experiments, Okumura and Tyka chose flora and fauna themes as the entry point for artistic dialogue - reminiscent perhaps of ancient evolutionary remnants in our human selves.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ILeSdTXgzys?start=164" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+DeepDream and Butoh are both human reactions to changing technological circumstances. But they sit in uneasy harmony, with the minimalist, organic, and very human dance form finding an odd partner in the nonlinear hallucinations of machines. In this collaboration the two media reflect the challenge of balancing our animal selves with the technology rising around us, and suggest that human responses to technology must be creative, adaptive, and sometimes shockingly novel.
+<img data-src="projects/butoh/IMG_6387.jpg" class="image">
+<img data-src="projects/butoh/IMG_6265.jpg" class="image">
+<img data-src="projects/butoh/IMG_6286.jpg" class="image">
+<img data-src="projects/butoh/IMG_6397.jpg" class="image">
+<img data-src="projects/butoh/IMG_6415.jpg" class="image">
+<img data-src="projects/butoh/IMG_6455.jpg" class="image">
