@@ -1,0 +1,23 @@
+- id: molecule
+  label: Molecular Sculpture
+  cover_image: projects/ubiquitin.jpg
+
+- id: deepdream
+  label: "AI: Deepdream"
+  cover_image: projects/neuralart.jpg
+
+- id: faces
+  label: AI Portraits
+  cover_image: projects/faces.jpg
+
+- id: sculpture
+  label: Sculpture
+  cover_image: projects/sculpture.jpg
+
+- id: animation
+  label: AI Animation
+  cover_image: projects/eons/stillframe.jpg
+
+- id: collaborations
+  label: Collaborations
+  cover_image: projects/groovikscube/cube15_big.jpg

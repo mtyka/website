@@ -76,9 +76,11 @@ function makeProjectMenuItem(project) {
       mainmenu(project.id, true); 
     };
   } else {
-    box.onclick = function() { 
-      showproject(project.id, true); 
-    }; 
+    box.onclick = function() {
+      var url = project.getAttribute('data-url');
+      if (url) { window.location.href = url; }
+      else { showproject(project.id, true); }
+    };
   }
   var crop = document.createElement("div");
 

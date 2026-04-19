@@ -1,0 +1,7 @@
+_site/
+vendor/
+.bundle/
+Gemfile.lock
+*.bak
+debug_migrate.py
+fix_projects.py

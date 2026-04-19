@@ -1,0 +1,29 @@
+<!DOCTYPE html><html>
+<head>
+<base href="/">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<title>{{ page.title }} - Mike Tyka</title>
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+{% include analytics.html %}
+{% include styles.html %}
+</head>
+<body>
+  <div class="reel">
+    {% include header.html %}
+    <hr>
+    <div class="project {{ page.tags | join: ' ' }}" id="{{ page.project_id }}" style="display:block">
+      <div class="desctitle">{{ page.title }}</div>
+      <div class="descmedia">{{ page.media }}</div>
+      <div class="descyear">{{ page.year }}</div>
+      {{ content }}
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('img[data-src]').forEach(function(img) {
+        img.src = img.getAttribute('data-src');
+      });
+    });
+  </script>
+</body>
+</html>

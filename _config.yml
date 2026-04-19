@@ -1,0 +1,23 @@
+title: Mike Tyka
+url: "http://www.miketyka.com"
+
+collections:
+  projects:
+    output: true
+    sort_by: order
+    permalink: /p/:name/
+
+defaults:
+  - scope:
+      type: projects
+    values:
+      layout: project
+
+# Don't process these
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - refactor.md
+  - migrate.py
+  - guitar/
