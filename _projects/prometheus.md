@@ -4,7 +4,7 @@ media: "Copper, Steel, Walnut, Gold - 10\"x6\"x6\""
 year: "2014 - Series of 3, private collection"
 cover_image: "projects/prometheus.jpg"
 tags: [copper, molecule]
-order: 8
+order: 9
 render_with_liquid: false
 project_id: "prometheus"
 ---

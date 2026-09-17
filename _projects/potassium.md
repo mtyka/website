@@ -4,7 +4,7 @@ media: "Copper, Steel - 14\"x14\"x20\""
 year: "2011"
 cover_image: "projects/kcsa.jpg"
 tags: [copper, molecule]
-order: 7
+order: 8
 render_with_liquid: false
 project_id: "potassium"
 ---

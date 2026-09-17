@@ -4,7 +4,7 @@ media: "Archival print, 16\"x16\", Edition of 100"
 year: "2017"
 cover_image: "projects/faces/cover/Jaclyn_Donahue_.jpg"
 tags: [digital, portraits, faces]
-order: 44
+order: 45
 render_with_liquid: false
 project_id: "Jaclyn_Donahue_"
 ---

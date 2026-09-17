@@ -4,7 +4,7 @@ media: "Neural net, Archival print, 60\"x48\", SOLD"
 year: "2016"
 cover_image: "projects/grayarea/coverimg/CastlesInTheSkyWithDiamonds.jpg.small.jpg"
 tags: [digital, deepdream]
-order: 15
+order: 16
 render_with_liquid: false
 project_id: "CastlesInTheSkyWithDiamonds"
 ---

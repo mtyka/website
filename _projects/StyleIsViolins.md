@@ -4,7 +4,7 @@ media: "Neural net, Archival print, 21\"x21\", SOLD"
 year: "2016"
 cover_image: "projects/grayarea/coverimg/StyleIsViolins.jpg.small.jpg"
 tags: [digital, deepdream, stillife]
-order: 27
+order: 28
 render_with_liquid: false
 project_id: "StyleIsViolins"
 ---

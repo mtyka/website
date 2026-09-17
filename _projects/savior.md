@@ -4,7 +4,7 @@ media: "Copper, Steel, Gold/Chrome plating - 56\"x50\"x18\""
 year: "2013"
 cover_image: "projects/savior.jpg"
 tags: [copper, molecule]
-order: 5
+order: 6
 render_with_liquid: false
 project_id: "savior"
 ---

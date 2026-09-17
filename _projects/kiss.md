@@ -4,7 +4,7 @@ media: "Cast glass, Cast aluminum"
 year: "2016"
 cover_image: "projects/kiss.jpg"
 tags: [copper, molecule]
-order: 4
+order: 5
 render_with_liquid: false
 project_id: "kiss"
 ---

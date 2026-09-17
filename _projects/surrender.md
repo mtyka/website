@@ -4,7 +4,7 @@ media: "Neural net, Archival print, Edition of 10, 36x60\""
 year: "2017"
 cover_image: "projects/newdeepdreams/coverimg/Surrender(2017)_med.jpg"
 tags: [digital, deepdream]
-order: 13
+order: 14
 render_with_liquid: false
 project_id: "surrender"
 ---

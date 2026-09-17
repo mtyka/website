@@ -4,7 +4,7 @@ media: "Archival print, 16\"x16\", Edition of 100"
 year: "2017"
 cover_image: "projects/faces/cover/evegreene88.jpg"
 tags: [digital, portraits, faces]
-order: 39
+order: 40
 render_with_liquid: false
 project_id: "evegreene88"
 ---

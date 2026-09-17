@@ -4,7 +4,7 @@ media: "Cast lead glass, Steel- 9\"x7\"x4\""
 year: "2015"
 cover_image: "projects/dna1.jpg"
 tags: [copper, molecule]
-order: 6
+order: 7
 render_with_liquid: false
 project_id: "dna1"
 ---

@@ -4,7 +4,7 @@ media: "Neural net, Archival print, 60\"x48\", SOLD"
 year: "2016"
 cover_image: "projects/grayarea/coverimg/GodsBrigade.jpg.small.jpg"
 tags: [digital, deepdream]
-order: 17
+order: 18
 render_with_liquid: false
 project_id: "GodsBrigade"
 ---

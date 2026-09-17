@@ -4,7 +4,7 @@ media: "Net art with Olia Lialina"
 year: "2017"
 cover_image: "projects/blingee.jpg"
 tags: [collaborations, netart]
-order: 65
+order: 66
 render_with_liquid: false
 project_id: "blingee"
 ---

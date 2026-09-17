@@ -4,7 +4,7 @@ media: "Archival print, 16\"x16\", Edition of 100"
 year: "2017"
 cover_image: "projects/faces/cover/Sarah_Giaco.jpg"
 tags: [digital, portraits, faces]
-order: 51
+order: 52
 render_with_liquid: false
 project_id: "Sarah_Giaco"
 ---

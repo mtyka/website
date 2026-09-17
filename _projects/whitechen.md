@@ -4,7 +4,7 @@ media: "Cast lead glass, Steel, Magnets - 14\"x12\"x12\""
 year: "2015, private collection"
 cover_image: "projects/whitechen.jpg"
 tags: [copper, molecule]
-order: 9
+order: 10
 render_with_liquid: false
 project_id: "whitechen"
 ---

@@ -4,7 +4,7 @@ media: "Archival print, 16\"x16\", Edition of 100"
 year: "2017"
 cover_image: "projects/faces/cover/Gabrielitaa7x.jpg"
 tags: [digital, portraits, faces]
-order: 41
+order: 42
 render_with_liquid: false
 project_id: "Gabrielitaa7x"
 ---

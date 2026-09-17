@@ -4,7 +4,7 @@ media: "Neural net, Archival print, 11.75\"x11.75\" SOLD"
 year: "2016"
 cover_image: "projects/grayarea/coverimg/Bacchus.jpg.small.jpg"
 tags: [digital, deepdream, stillife]
-order: 26
+order: 27
 render_with_liquid: false
 project_id: "Bacchus"
 ---
