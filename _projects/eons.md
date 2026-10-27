@@ -4,7 +4,7 @@ media: "Neural Net Animation"
 year: "2019"
 cover_image: "projects/eons/stillframe.jpg"
 tags: [digital, animation]
-order: 34
+order: 36
 render_with_liquid: false
 project_id: "eons"
 ---

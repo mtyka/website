@@ -4,7 +4,7 @@ media: "With Kaoru Okumura and Robin Buerki"
 year: "2016"
 cover_image: "projects/butoh.jpg"
 tags: [collaborations, performance]
-order: 65
+order: 67
 render_with_liquid: false
 project_id: "butoh"
 ---

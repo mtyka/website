@@ -4,7 +4,7 @@ media: "Installation with Refik Anadol"
 year: "2017"
 cover_image: "projects/salt.jpg"
 tags: [collaborations, installation]
-order: 67
+order: 69
 render_with_liquid: false
 project_id: "salt"
 ---

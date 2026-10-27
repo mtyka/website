@@ -4,7 +4,7 @@ media: "Cast lead glass, machined bronze"
 year: "2018"
 cover_image: "projects/sculpture/thesap.jpg"
 tags: [sculpture]
-order: 62
+order: 64
 render_with_liquid: false
 project_id: "thesap"
 ---

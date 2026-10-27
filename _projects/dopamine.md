@@ -4,7 +4,7 @@ media: "Plaster of Paris, Mirror, Dollar bill"
 year: "2017"
 cover_image: "projects/sculpture/dopamine.jpg"
 tags: [sculpture]
-order: 61
+order: 63
 render_with_liquid: false
 project_id: "dopamine"
 ---

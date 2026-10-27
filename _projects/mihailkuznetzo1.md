@@ -4,7 +4,7 @@ media: "Archival print, 16\"x16\", Edition of 100"
 year: "2017"
 cover_image: "projects/faces/cover/mihailkuznetzo1.jpg"
 tags: [digital, portraits, faces]
-order: 51
+order: 53
 render_with_liquid: false
 project_id: "mihailkuznetzo1"
 ---

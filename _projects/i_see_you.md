@@ -4,7 +4,7 @@ media: "Archival print, 20\"x20\", Edition of 2"
 year: "2017"
 cover_image: "projects/faces/cover/I see you.jpg"
 tags: [digital, portraits, faces]
-order: 36
+order: 38
 render_with_liquid: false
 project_id: "I see you"
 ---

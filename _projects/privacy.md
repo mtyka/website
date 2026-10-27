@@ -4,7 +4,7 @@ media: "With Allegra Searle-LeBel and Maxime Billet"
 year: "2015"
 cover_image: "projects/privacy.jpg"
 tags: [collaborations, performance]
-order: 64
+order: 66
 render_with_liquid: false
 project_id: "privacy"
 ---

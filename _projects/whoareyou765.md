@@ -4,7 +4,7 @@ media: "Archival print, 16\"x16\", Edition of 100"
 year: "2017"
 cover_image: "projects/faces/cover/whoareyou765.jpg"
 tags: [digital, portraits, faces]
-order: 54
+order: 56
 render_with_liquid: false
 project_id: "whoareyou765"
 ---

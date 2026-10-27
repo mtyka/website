@@ -4,7 +4,7 @@ media: "Neural net, digital, chance, (NOT AVAILABLE)"
 year: "2015"
 cover_image: "projects/inceptionism/coverimg/Iterative_Places205-GoogLeNet_17.jpg.sm.jpg"
 tags: [digital, deepdream, inceptionism]
-order: 32
+order: 34
 render_with_liquid: false
 project_id: "inceptionism2"
 ---

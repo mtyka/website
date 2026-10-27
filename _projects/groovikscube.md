@@ -4,7 +4,7 @@ media: ""
 year: "2009-2014Burning Man & Libery Science Center, NJ"
 cover_image: "projects/groovikscube.jpg"
 tags: [collaborations, installation]
-order: 63
+order: 65
 render_with_liquid: false
 project_id: "groovikscube"
 ---

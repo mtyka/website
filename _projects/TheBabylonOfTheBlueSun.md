@@ -4,7 +4,7 @@ media: "Neural net, Archival print, 66\"x50\", SOLD"
 year: "2016"
 cover_image: "projects/grayarea/coverimg/TheBabylonOfTheBlueSun.jpg.small.jpg"
 tags: [digital, deepdream]
-order: 23
+order: 25
 render_with_liquid: false
 project_id: "TheBabylonOfTheBlueSun"
 ---

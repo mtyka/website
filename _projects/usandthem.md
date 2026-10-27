@@ -4,7 +4,7 @@ media: "Kinetic Installation"
 year: "2018, Commissioned by Seoul Museum of Art"
 cover_image: "projects/usandthem/img_5130.jpg"
 tags: [sculpture, faces]
-order: 35
+order: 37
 render_with_liquid: false
 project_id: "usandthem"
 ---
