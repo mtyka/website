@@ -293,7 +293,7 @@ The mechanical migration is done by a Python script (`migrate.py`) that:
 ## Build and Deploy
 
 ```bash
-bundle exec jekyll build   # outputs to _site/
+jekyll build   # outputs to _site/
 ```
 
 The `_site/index.html` should be diff-comparable to the original `index.html` (modulo

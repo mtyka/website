@@ -15,11 +15,7 @@ defaults:
 
 # Don't process these
 exclude:
-  - bin/
-  - jekyll
-  - Gemfile
-  - Gemfile.lock
-  - vendor/
+  - jekyll_manual
   - refactor.md
   - migrate.py
   - guitar/
